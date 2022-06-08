@@ -53,20 +53,20 @@ router.put('/:id', (req, res) => {
   Category.update({
     category_name: req.body.category_name
   },
-  {
-    where: { id: req.params.id }
-  })
+    {
+      where: { id: req.params.id }
+    })
     .then(categoryData => {
-      if(!categoryData) {
-        res.status(404).json({message: 'Category not found.'});
+      if (!categoryData) {
+        res.status(404).json({ message: 'Category not found.' });
         return;
       }
       res.json(categoryData);
     })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.delete('/:id', (req, res) => {
@@ -75,11 +75,11 @@ router.delete('/:id', (req, res) => {
     where: { id: req.params.id }
   })
     .then(categoryData => {
-      if(!categoryData) {
-        res.status(404).json({message: 'Category not found.'});
+      if (!categoryData) {
+        res.status(404).json({ message: 'Category not found.' });
         return;
       }
-      res,json(categoryData);
+      res, json(categoryData);
     })
     .catch(err => {
       console.log(err);

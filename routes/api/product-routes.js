@@ -126,8 +126,8 @@ router.delete('/:id', (req, res) => {
     where: { id: req.params.id }
   })
     .then(productData => {
-      if(!productData) {
-        res.status(404).json({message: 'Product not found.'});
+      if (!productData) {
+        res.status(404).json({ message: 'Product not found.' });
         return;
       }
       res.json(productData);
