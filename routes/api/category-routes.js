@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
-  Category.fineOne({
+  Category.findOne({
     where: { id: req.params.id },
     // be sure to include its associated Products
     include: {
@@ -71,7 +71,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  Category.destory({
+  Category.destroy({
     where: { id: req.params.id }
   })
     .then(categoryData => {
@@ -79,7 +79,7 @@ router.delete('/:id', (req, res) => {
         res.status(404).json({ message: 'Category not found.' });
         return;
       }
-      res, json(categoryData);
+      res.json(categoryData);
     })
     .catch(err => {
       console.log(err);
